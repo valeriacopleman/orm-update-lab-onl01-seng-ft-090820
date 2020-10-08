@@ -67,6 +67,11 @@ class Student
     # find the student in the database given a name
     # return a new instance of the Student class
   end
+  
+  def update
+    sql = "UPDATE students SET name = ?, grade = ? WHERE name = ?"
+    DB[:conn].execute(sql, self.name, self.grade, self.name)
+  end
   # Remember, you can access your database connection anywhere in this class
   #  with DB[:conn]
 
